@@ -17,10 +17,10 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import Welcome from './src/Welcome';
+import Routes from './src/routes/index';
 
 const App: React.FC = () => {
-  return <Welcome />;
+  return <Routes />;
 };
 
 export default App;
