@@ -1,39 +1,41 @@
 import React from 'react';
-import {Image} from 'react-native';
 
-import Logo from '../assets/ic_logo.png';
+import Logo from '../../assets/Auth/ic_logo.svg';
 
 import Button from '../../components/Button/index';
 
 import * as S from './styles';
 import defaultTheme from '../../theme/index';
+import {useNavigation} from '@react-navigation/native';
 
 const Welcome: React.FC = () => {
+  const navigation = useNavigation();
   return (
     <S.Container>
       <S.LogoContainer>
-        <Image source={Logo} />
+        <Logo width={190} />
+        <S.LogoText>Fit Me</S.LogoText>
       </S.LogoContainer>
       <S.ButtonsContainer>
         <Button
+          onPress={() => navigation.navigate('SignIn')}
           textStyle={{color: defaultTheme.colors.white}}
           containerStyle={{
-            borderRadius: 20,
-            backgroundColor: defaultTheme.colors.greenButton,
-            width: '80%',
+            borderRadius: 8,
+            backgroundColor: defaultTheme.colors.orangeButton,
             marginBottom: 20,
           }}>
-          Entrar
+          ENTRAR
         </Button>
         <Button
-          textStyle={{color: defaultTheme.colors.black}}
+          onPress={() => navigation.navigate('SignUp')}
+          textStyle={{color: defaultTheme.colors.orangeButton}}
           containerStyle={{
             borderWidth: 1,
-            borderColor: defaultTheme.colors.greenButton,
-            borderRadius: 20,
-            width: '80%',
+            borderColor: defaultTheme.colors.orangeButton,
+            borderRadius: 8,
           }}>
-          Cadastrar
+          CADASTRAR
         </Button>
       </S.ButtonsContainer>
     </S.Container>

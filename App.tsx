@@ -1,26 +1,15 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-import Routes from './src/routes/index';
+import Routes from './src/routes';
+import BottomTab from './src/routes/bottomTab';
 
 const App: React.FC = () => {
-  return <Routes />;
+  return (
+    <>
+      <Routes />
+      {/* <BottomTab /> */}
+    </>
+  );
 };
 
 export default App;

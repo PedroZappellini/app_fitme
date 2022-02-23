@@ -1,13 +1,27 @@
 import React from 'react';
-import {TextInput} from 'react-native';
+import {StyleProp, TextInput, ViewStyle} from 'react-native';
 
 import * as S from './styles';
 
-const DefaultInput: React.FC = () => {
+interface IInput {
+  containerStyle?: StyleProp<ViewStyle>;
+  inputStyle?: StyleProp<ViewStyle>;
+  small?: boolean;
+}
+
+const DefaultInput: React.FC<IInput> = ({
+  containerStyle,
+  inputStyle,
+  children,
+  small,
+}) => {
   return (
-    <S.Container>
-      <TextInput placeholder="Digite aqui" />
-    </S.Container>
+    <S.LabelContainer style={containerStyle}>
+      <S.TextLabel>{children}</S.TextLabel>
+      <S.Container style={inputStyle}>
+        <TextInput placeholder="Digite aqui" />
+      </S.Container>
+    </S.LabelContainer>
   );
 };
 

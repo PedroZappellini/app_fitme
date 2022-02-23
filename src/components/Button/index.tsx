@@ -6,11 +6,17 @@ import * as S from './styles';
 interface IButton {
   containerStyle?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
+  onPress?: () => void;
 }
 
-const Button: React.FC<IButton> = ({containerStyle, textStyle, children}) => {
+const Button: React.FC<IButton> = ({
+  onPress,
+  containerStyle,
+  textStyle,
+  children,
+}) => {
   return (
-    <S.Container style={containerStyle}>
+    <S.Container onPress={onPress} style={containerStyle}>
       <S.ButtonText style={textStyle}>{children}</S.ButtonText>
     </S.Container>
   );
