@@ -41,7 +41,8 @@ const SignIn: React.FC = () => {
           }}>
           ENTRAR
         </Button>
-        <S.ForgotPasswordContainer>
+        <S.ForgotPasswordContainer
+          onPress={() => navigation.navigate('ForgotPassword')}>
           <S.ForgotPasswordText>ESQUECI MINHA SENHA</S.ForgotPasswordText>
         </S.ForgotPasswordContainer>
       </S.InputContainer>
