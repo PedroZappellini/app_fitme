@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Header from '../../components/Header/index';
 import DefaultInput from '../../components/DefaultInput';
 
@@ -8,9 +8,19 @@ import * as S from './styles';
 import Button from '../../components/Button/index';
 import defaultTheme from '../../theme';
 import {useNavigation} from '@react-navigation/native';
+import AuthContext from '../../contexts/auth';
 
 const SignIn: React.FC = () => {
   const navigation = useNavigation();
+  const {signed, user, signIn} = useContext(AuthContext);
+
+  console.log(signed, 'signed');
+  console.log(user, 'user');
+
+  async function HandleSignIn() {
+    signIn();
+  }
+
   return (
     <S.Container>
       <Header />
@@ -32,7 +42,10 @@ const SignIn: React.FC = () => {
           containerStyle={{marginTop: 10}}
         />
         <Button
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => {
+            navigation.navigate('HomeScreen');
+            HandleSignIn();
+          }}
           textStyle={{color: defaultTheme.colors.white}}
           containerStyle={{
             borderRadius: 8,

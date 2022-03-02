@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Header from '../../../components/Header';
 import Logo from '../../../assets/Auth/ic_logo.svg';
+import CloseIcon from '../../../assets/Auth/ic_close.svg';
 
 import DefaultInput from '../../../components/DefaultInput';
 import Button from '../../../components/Button';
@@ -10,16 +11,38 @@ import defaultTheme from '../../../theme';
 
 import * as S from './styles';
 import {useNavigation} from '@react-navigation/native';
-import {Text} from 'react-native';
 
 const NewPassword: React.FC = () => {
   const navigation = useNavigation();
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
   return (
     <S.Container>
-      <AdvancedModal>
+      <AdvancedModal setVisible={setModal} isModal={modal}>
         <S.ModalContainer>
-          <Text>aloaloalo</Text>
+          <S.CloseButtonContainer>
+            <S.ModalTitle>Redefinição de senha</S.ModalTitle>
+            <S.CloseButton onPress={() => setModal(false)}>
+              <CloseIcon />
+            </S.CloseButton>
+          </S.CloseButtonContainer>
+          <S.ModalDescription>
+            Sua senha foi alterada com sucesso!
+          </S.ModalDescription>
+          <S.ModalDescription>
+            Anote-a em algum lugar para não esquece-la novamente!
+          </S.ModalDescription>
+          <S.ButtonContainer>
+            <Button
+              onPress={() => navigation.navigate('HomeScreen')}
+              textStyle={{color: defaultTheme.colors.white}}
+              containerStyle={{
+                borderRadius: 8,
+                width: '100%',
+                backgroundColor: defaultTheme.colors.orangeButton,
+              }}>
+              ENTENDI
+            </Button>
+          </S.ButtonContainer>
         </S.ModalContainer>
       </AdvancedModal>
       <S.SeparationContainer>

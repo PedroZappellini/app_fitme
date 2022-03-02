@@ -4,8 +4,10 @@ const defaultTheme = {
     black: '#000',
     textColor: '#474747',
     grayLighterText: '#766E6E',
+    grayLighterLighterText: '#DEDCDC',
     white: '#fff',
     grayInput: '#EAEAEA',
+    heartColor: '#ED5555',
   },
 
   fonts: {
